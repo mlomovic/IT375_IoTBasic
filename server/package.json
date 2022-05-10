@@ -1,0 +1,23 @@
+{
+  "name": "iotbasic",
+  "version": "1.0.0",
+  "description": "iot web arduino led temperature servo",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "iot",
+    "arduino",
+    "web"
+  ],
+  "author": "it375",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "johnny-five": "^2.1.0",
+    "nodemon": "^2.0.15"
+  }
+}
