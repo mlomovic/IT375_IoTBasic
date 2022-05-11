@@ -2,9 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const {
-    Bpard,
     Led,
-    Board
+    Board,
+    Thermometer
 } = require('johnny-five');
 
 const PORT = 3000;
@@ -106,6 +106,28 @@ app.post('/leds', (req, res) => {
 });
 
 
+
+app.get('/temp', (req, res) => {
+
+    let temp = new Thermometer({
+        controller: "DS18B20",
+        pin: "A0"
+      });
+
+      try {
+          temp.on("data", () => {
+            console.log("celsius: %d", this.C);
+            console.log("fahrenheit: %d", this.F);
+            console.log("kelvin: %d", this.K);
+            res.send(`<h2>Trenutna temperatura je ${this.C} C</h2>`);
+          });
+          
+      } catch (error) {
+          console.log(error);
+      }
+      
+    // console.log(req);
+});
 
 
 
